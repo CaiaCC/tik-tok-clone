@@ -1,6 +1,6 @@
 const { createClient } = require("@astrajs/collections");
 
-const collection = "posts";
+const collection = "tktkposts";
 
 exports.handler = async function (event, context, callback) {
     const astraClient = await createClient({
@@ -10,15 +10,14 @@ exports.handler = async function (event, context, callback) {
     });
 
     const posts = astraClient
-        .namespace("process.env.ASTRA_DB_KEYSPACE")
+        .namespace(process.env.ASTRA_DB_KEYSPACE)
         .collection(collection);
 
     try {
-        await posts.create("a post", {
-            title: "my first post",
-        });
+        const res = await posts.find({})
         return {
             statusCode: 200,
+            body: JSON.stringify(Object.keys(res).map((i) => res[i]))
         };
     } catch (err) {
         console.error(err);
