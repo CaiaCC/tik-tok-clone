@@ -15,5 +15,9 @@
         "titleBar.inactiveBackground": "#4565aa99",
         "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.color": "#4565aa"
+    "peacock.color": "#4565aa",
+        "editor.autoIndent": "none",
+        "editor.trimAutoWhitespace": false,
+        "diffEditor.ignoreTrimWhitespace": false,
+        "prettier.tabWidth": 4
 }
